@@ -1,7 +1,7 @@
 <h1>Short info</h1>
 
 <p>Long url: <b><%= link_to @short.longer, @short.longer %></b></p>
-<p>Short url: <b><%= link_to "#{request.protocol}#{request.host_with_port}/#{@short.shorter}", "#{request.protocol}#{request.host_with_port}/#{@short.shorter}" %></b></p>
+<p>Short url: <b><%= link_to redirect_short_url(:short => @short.shorter), redirect_short_url(:short => @short.shorter) %></b></p>
 
 <p>Statistics</p>
 <ul>
@@ -13,4 +13,4 @@
   <li>Other: <b><%= @short.other %></b></li>
 </ul>
 
-<%= link_to 'Back', root_url %>  
+<%= link_to 'Back', root_path %>  

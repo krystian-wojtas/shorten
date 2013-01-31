@@ -1,8 +1,8 @@
 Shorten::Application.routes.draw do
-  root :to => "sh#index"
+  root to: "sh#index"
   match 'create' => 'sh#create'
-  match ':short/show' => 'sh#show'
-  match ':short' => 'sh#redirect'
+  match ':short/show' => 'sh#show', :as => :show_short
+  match ':short' => 'sh#redirect', :as => :redirect_short
 
   #get "sh/index"
 
