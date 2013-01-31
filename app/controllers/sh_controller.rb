@@ -6,11 +6,6 @@ class ShController < ApplicationController
   def create
     @short = Short.new(params[:short])
 
-    while @short.shorter.blank?
-      f = @short.longer.hash + rand.hash
-      @short.shorter = f if Short.where('shorter = ?', f).empty?
-    end
-
     respond_to do |format|
       if @short.save
         format.html { redirect_to show_short_path(:short => @short.shorter) }
