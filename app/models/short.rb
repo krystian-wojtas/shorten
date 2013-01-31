@@ -5,9 +5,11 @@ class Short < ActiveRecord::Base
   scope :busy, lambda { |short| where('shorter = ?', short).limit(1) }
   
   before_validation do |short|
+    i = 0
     begin
       self.shorter = longer.hash + rand.hash
-    end until(Short.busy(self.shorter).empty?)
+      i += 1
+    end until(Short.busy(self.shorter).empty? or i==10)
   end
 
   validates :shorter, :presence => true, :uniqueness => true
