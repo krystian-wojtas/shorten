@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  longer: MyString
+railsguide:
+  longer: http://guides.rubyonrails.org/testing.html
   shorter: MyString
-  firefox: 1
-  opera: 1
-  chrome: 1
-  safari: 1
-  ie: 1
-  other: 1
+  firefox: 0
+  opera: 0
+  chrome: 0
+  safari: 0
+  ie: 0
+  other: 0
 
 two:
   longer: MyString
