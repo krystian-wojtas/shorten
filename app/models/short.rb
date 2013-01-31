@@ -5,7 +5,7 @@ class Short < ActiveRecord::Base
   scope :busy, lambda { |short| where('shorter = ?', short).limit(1) }
 
   def f
-    self.longer.hash.to_i + rand.to_i
+    self.longer.hash + rand.hash
   end
 
   def next_short
