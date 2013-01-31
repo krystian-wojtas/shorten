@@ -13,7 +13,7 @@ class ShController < ApplicationController
 
     respond_to do |format|
       if @short.save
-        format.html { redirect_to "/#{@short.shorter}/show", notice: 'Short was successfully created.' } #TODO redirect
+        format.html { redirect_to "/#{@short.shorter}/show" }
         format.json { render json: @short, status: :created, location: @short }
       else
         format.html { render action: "index" }
