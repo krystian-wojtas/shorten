@@ -13,7 +13,6 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -44,6 +43,8 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 
-gem "browser"
+gem 'browser'
 gem 'attribute-defaults'
 #rails_atomic_increment
+
+gem 'aquarium', :group => :test
