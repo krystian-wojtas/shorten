@@ -20,9 +20,7 @@ class Short < ActiveRecord::Base
     end
   end
 
-  before_validation do |short|
-    try_get_short
-  end
+  before_validation :try_get_short, :if => lambda { |short| self.shorter.blank? }
 
   validates :shorter, :presence => true, :uniqueness => true
   validates :longer, :presence => true
