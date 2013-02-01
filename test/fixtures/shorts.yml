@@ -9,3 +9,13 @@ railsguide:
   safari: 0
   ie: 0
   other: 0
+
+two:
+  longer: MyString
+  shorter: MyString
+  firefox: 1
+  opera: 1
+  chrome: 1
+  safari: 1
+  ie: 1
+  other: 1
