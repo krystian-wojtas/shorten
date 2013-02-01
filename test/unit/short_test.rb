@@ -24,4 +24,12 @@ class ShortTest < ActiveSupport::TestCase
     assert short.save, 'Cannot save object'
     assert ! Short.busy(short.shorter).empty?, 'Cannot find saved object'
   end
+
+  test 'presence' do
+    short = Short.new
+    assert ! short.save, 'Object is not set properly'
+
+    short.longer = 'http://url.com'
+    assert short.save, 'Cannot save object'
+  end
 end
