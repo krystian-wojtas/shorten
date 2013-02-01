@@ -32,4 +32,15 @@ class ShortTest < ActiveSupport::TestCase
     short.longer = 'http://url.com'
     assert short.save, 'Cannot save object'
   end
+
+  test 'url' do
+    short = Short.new(:longer => 'without_protocol.com')
+    assert ! short.save, 'Url should specify http protocol'
+
+    short.longer = 'https://encrypted_connection.com'
+    assert ! short.save, 'Https is not supported'
+
+    short.longer = 'http://url_ok.com'
+    assert short.save, 'Cannot save object'
+  end
 end
