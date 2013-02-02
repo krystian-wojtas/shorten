@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  short: 
+  chrome: 1
+  firefox: 1
+  ie: 1
+  opera: 1
+  safari: 1
+  other: 1
+
+two:
+  short: 
+  chrome: 1
+  firefox: 1
+  ie: 1
+  opera: 1
+  safari: 1
+  other: 1

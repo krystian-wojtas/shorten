@@ -1,6 +1,7 @@
 class Short < ActiveRecord::Base
   attr_accessible  :longer, :shorter
-  attr_defaults :chrome => 0, :firefox => 0, :ie => 0, :opera => 0, :other => 0, :safari => 0
+  has_one :stat, :dependent => :destroy
+  after_create :create_stat
 
   scope :busy, lambda { |short| where('shorter = ?', short).limit(1) }
 
