@@ -11,19 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129094231) do
+ActiveRecord::Schema.define(:version => 20130202140040) do
 
   create_table "shorts", :force => true do |t|
     t.string   "longer"
     t.string   "shorter"
-    t.integer  "firefox"
-    t.integer  "opera"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "stats", :force => true do |t|
+    t.integer  "short_id"
     t.integer  "chrome"
-    t.integer  "safari"
+    t.integer  "firefox"
     t.integer  "ie"
+    t.integer  "opera"
+    t.integer  "safari"
     t.integer  "other"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "stats", ["short_id"], :name => "index_stats_on_short_id"
 
 end
