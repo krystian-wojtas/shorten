@@ -23,23 +23,8 @@ class ShController < ApplicationController
 
   def redirect
     short = Short.where('shorter = ?', params[:short]).first
+    short.stat.up( request.user_agent )
     
-    browser = Browser.new(:ua => request.user_agent)
-    if browser.firefox?
-      Short.increment_counter :firefox, short.id
-    elsif browser.chrome?
-      Short.increment_counter :chrome, short.id
-    elsif browser.ie?
-      Short.increment_counter :ie, short.id
-    elsif browser.opera?
-      Short.increment_counter :opera, short.id
-    elsif browser.safari?
-      Short.increment_counter :safari, short.id
-    elsif browser.other?
-      Short.increment_counter :other, short.id
-    end
-    
-
     redirect_to "#{short.longer}"
 #    respond_to do |format|
 #      format.html { redirect_to "#{short.longer}" }
