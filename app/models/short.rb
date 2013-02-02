@@ -3,31 +3,6 @@ class Short < ActiveRecord::Base
   has_one :stat, :dependent => :destroy
   after_create :create_stat
 
-  def chrome
-    stat.chrome
-  end
-
-  def firefox
-    stat.firefox
-  end
-
-  def ie
-    stat.ie
-  end
-
-  def opera
-    stat.opera
-  end
-
-  def safari
-    stat.safari
-  end
-
-  def other
-    stat.other
-  end
-
-  
   scope :busy, lambda { |short| where('shorter = ?', short).limit(1) }
 
   def f
